@@ -126,7 +126,7 @@ module Fog
               :aws_session_token  => @aws_session_token,
               :method             => 'POST',
               :signer             => @signer,
-              :host               => @host,
+              :host               => @uri.host,
               :path               => @path,
               :port               => @port,
               :version            => '2011-01-01'
