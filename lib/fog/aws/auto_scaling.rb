@@ -101,7 +101,8 @@ module Fog
           @port       = options[:port]        || 443
           @persistent = options[:persistent]  || false
           @scheme     = options[:scheme]      || 'https'
-          @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}#{@path}", @persistent, @connection_options)
+          @uri        = Fog::URI.build(:scheme => @scheme, :host => @host, :port => @port, :path => @path)
+          @connection = Fog::XML::Connection.new(@uri, @persistent, @connection_options)
 
           setup_credentials(options)
         end
